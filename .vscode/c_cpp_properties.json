@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/usr/include/*",
+                "/usr/include/c++/10/*",
+                "/usr/include/c++/10/backward/*",
+                "/usr/include/x86_64-linux-gnu/*",
+                "/usr/include/x86_64-linux-gnu/c++/10/*",
+                "/usr/lib/gcc/x86_64-linux-gnu/10/include/*",
+                "/usr/local/include/*",
+                "/usr/src/glibc/glibc-2.31/sysdeps/posix",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/include/freertos",
+                "${workspaceFolder}/build/lib/freertos-kernel/include",
+                "${workspaceFolder}/build/lib/freertos-kernel/portable/ThirdParty/GCC/Posix",
+                "/home/gfreese/.conan/data/libnlohmann-json/3.9.1/freese/sandbox/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

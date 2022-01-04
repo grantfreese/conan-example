@@ -1,0 +1,5 @@
+.vscode/.conan_tools/conanInfo.dot
+.vscode/.ropeproject
+.vscode/settings.json
+build
+

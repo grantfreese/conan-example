@@ -1,0 +1,36 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+        {
+            "name":"Python: Current File",
+            "type":"python",
+            "request":"launch",
+            "program":"${file}",
+            "console":"integratedTerminal"
+        },
+		{
+			"name": "build and debug",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/conan-example",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			],
+			"miDebuggerPath": "/usr/bin/gdb",
+			"sourceFileMap": {
+				"/build/glibc-eX1tMB/glibc-2.31": "/usr/src/glibc",
+				"/build/glibc-YbNSs7/glibc-2.31": "/usr/src/glibc/glibc-2.31"
+			}
+		}
+	]
+}

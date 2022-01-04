@@ -1,0 +1,15 @@
+[settings]
+os=None
+arch=armv7
+compiler=gcc
+compiler.version=10
+compiler.libcxx=libstdc++11
+build_type=Debug
+
+[options]
+
+[build_requires]
+arm-none-eabi-gcc/10.2.1@aptera/sandbox
+cmake/3.19.4
+
+[env]

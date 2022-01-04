@@ -1,0 +1,89 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "build",
+            "command": "conan",
+            "args": [
+                "build",
+                "--build-folder=build",
+                "."
+            ],
+            "problemMatcher": ["$gcc",
+            {
+                "owner": "cpp",
+                "fileLocation": "absolute",
+                "pattern": [
+                {
+                    "regexp": "^\\/\\S+: (\\/\\S+\\.\\w{1,3}):(\\d{1,5}): (\\D+)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3,
+                },
+                //TODO: figure out how to combine regex
+                // {
+                //     "regexp": "^\\/.*ld: (\\/\\S+)\\(.*\\): .*:$",
+                //     "file": 1,
+                // }
+                // {
+                //     "regexp": "^[^:]+S*:[a-zA-Z._+0-9()]*: (.*)$",
+                //     "message": 1,
+                //     "loop": true
+                // },
+                
+                ]
+            }
+            ],
+            "group": "build"
+        },
+        {
+            // task to fetch source (mostly for freertos)
+            "type": "process",
+            "label": "source",
+            "command": "conan",
+            "args": [
+                "source",
+                "--source-folder=build",
+                "--install-folder=build",
+                "."
+            ],
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            // this depends on source task so source task will run first
+            "type": "process",
+            "label": "install",
+            "command": "conan",
+            "args": [
+                "install",
+                "--install-folder=build",
+                "--build=missing",
+                "--profile:build=linux-gcc-10",
+                "--profile:host=linux-gcc-10",
+                "."
+            ],
+            "problemMatcher": "$gcc",
+            "group": "build",
+            "dependsOn": "source"
+        },
+        {
+            "type": "process",
+            "label": "clean",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "./build",
+                "||", "true"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "process",
+            "label": "run",
+            "command": "./build/battery-module-interface",
+            "group": "build"
+        },
+    ]
+}
